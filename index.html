@@ -6,53 +6,54 @@
   <title>Bem-vindo(a) à UniFatecie EaD</title>
   <style>
     :root {
-      --primary: #c8102e;
-      --primary-dark: #8b0a1e;
-      --primary-light: #f9e5e8;
-      --accent: #1a1a1a;
-      --light: #f7f7f7;
+      --primary: #f7941d;     
+      --primary-dark: #d97706; 
+      --primary-light: #fff4e5;
+      --accent: #111111;    
+      --light: #f4f4f5;    
       --white: #ffffff;
-      --text: #2c2c2c;
-      --muted: #6b7280;
+      --text: #111111;        
+      --muted: #6b6b6f;      
       --success: #16a34a;
-      --border: #e5e7eb;
+      --border: #e4e4e7;
       --radius: 12px;
-      --shadow: 0 4px 18px rgba(200,16,46,0.10);
+      --shadow: 0 4px 18px rgba(0,0,0,0.08);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      background: var(--light);
-      color: var(--text);
-      min-height: 100vh;
-    }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--light);
+  color: var(--text);
+  min-height: 100vh;
+}
 
-    /* ─── HEADER ─── */
-    header {
-      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-      color: var(--white);
-      padding: 40px 24px 36px;
-      text-align: center;
-    }
+/* HEADER com fundo chumbo e logo branco */
+header {
+  background: #2f3337;        /* cinza chumbo mais escuro */
+  color: var(--white);
+  padding: 40px 24px 36px;
+  text-align: center;
+}
 
-    .header-welcome {
-      font-size: 1rem;
-      font-weight: 500;
-      opacity: 0.9;
-      letter-spacing: 0.5px;
-      margin-bottom: 16px;
-      text-transform: uppercase;
-    }
+.header-welcome {
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
 
-    .header-logo {
-      max-width: 220px;
-      width: 100%;
-      margin: 0 auto 24px;
-      display: block;
-      filter: brightness(0) invert(1);
-    }
+.header-logo {
+  max-width: 260px;
+  width: 100%;
+  margin: 0 auto 24px;
+  display: block;
+  /* como o arquivo já será todo branco, não precisa inverter cor */
+  /* filter: brightness(0) invert(1); <- pode remover se estiver usando logo branco */
+}
 
     header p {
       font-size: 1rem;
@@ -91,7 +92,7 @@
       color: var(--primary);
       font-size: 1.08rem;
       text-decoration: underline;
-      text-underline-offset: 3px;
+  text-underline-offset: 3px;
     }
 
     /* ─── TABS ─── */
@@ -490,7 +491,7 @@
 <!-- ══════════════ HEADER ══════════════ -->
 <header>
   <p class="header-welcome">Seja bem-vindo(a) à</p>
-  <img src="logo.png" alt="UniFatecie" class="header-logo" />
+  <img src="LOGO_UNIFATECIE_EAD.jpg" alt="UniFatecie" class="header-logo" />
   <p>Aqui você encontra tudo que precisa para dar os primeiros passos no seu curso EaD.</p>
 </header>
 
