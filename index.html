@@ -6,16 +6,18 @@
   <title>Bem-vindo(a) à UniFatecie EaD</title>
   <style>
     :root {
-      --primary: #1a3a6b;
-      --accent: #e8a020;
-      --light: #f4f7fc;
+      --primary: #c8102e;
+      --primary-dark: #8b0a1e;
+      --primary-light: #f9e5e8;
+      --accent: #1a1a1a;
+      --light: #f7f7f7;
       --white: #ffffff;
       --text: #2c2c2c;
       --muted: #6b7280;
       --success: #16a34a;
-      --border: #dde3ef;
+      --border: #e5e7eb;
       --radius: 12px;
-      --shadow: 0 4px 18px rgba(26,58,107,0.10);
+      --shadow: 0 4px 18px rgba(200,16,46,0.10);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,33 +31,28 @@
 
     /* ─── HEADER ─── */
     header {
-      background: linear-gradient(135deg, var(--primary) 0%, #0f2347 100%);
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
       color: var(--white);
-      padding: 40px 24px 32px;
+      padding: 40px 24px 36px;
       text-align: center;
     }
 
-    .header-badge {
-      display: inline-block;
-      background: var(--accent);
-      color: var(--primary);
-      font-weight: 700;
-      font-size: 0.75rem;
-      letter-spacing: 1px;
+    .header-welcome {
+      font-size: 1rem;
+      font-weight: 500;
+      opacity: 0.9;
+      letter-spacing: 0.5px;
+      margin-bottom: 16px;
       text-transform: uppercase;
-      padding: 4px 14px;
-      border-radius: 20px;
-      margin-bottom: 14px;
     }
 
-    header h1 {
-      font-size: clamp(1.6rem, 5vw, 2.4rem);
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 10px;
+    .header-logo {
+      max-width: 220px;
+      width: 100%;
+      margin: 0 auto 24px;
+      display: block;
+      filter: brightness(0) invert(1);
     }
-
-    header h1 span { color: var(--accent); }
 
     header p {
       font-size: 1rem;
@@ -67,20 +64,35 @@
 
     /* ─── ALERT BOX ─── */
     .alert {
-      background: #fffbeb;
-      border-left: 5px solid var(--accent);
+      background: var(--white);
+      border-left: 5px solid var(--primary);
       border-radius: var(--radius);
-      padding: 16px 20px;
+      padding: 20px 24px;
       margin: 24px auto;
       max-width: 720px;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
+      line-height: 1.7;
     }
 
-    .alert-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 1px; }
+    .alert-confirmed {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .alert-body {
+      font-size: 0.97rem;
+      color: var(--text);
+    }
+
+    .alert-body .highlight-email {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 1.08rem;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
 
     /* ─── TABS ─── */
     .tabs-wrapper {
@@ -148,7 +160,7 @@
     }
 
     .card-title .icon {
-      background: var(--light);
+      background: var(--primary-light);
       border-radius: 8px;
       width: 34px;
       height: 34px;
@@ -187,8 +199,7 @@
     .step-num::before { content: counter(step); }
 
     .step-body { font-size: 0.93rem; line-height: 1.6; }
-
-    .step-body strong { color: var(--primary); }
+    .step-body strong { color: var(--primary-dark); }
 
     /* ─── LINK BUTTONS ─── */
     .link-group { display: flex; flex-direction: column; gap: 10px; }
@@ -210,15 +221,12 @@
 
     .link-btn:hover {
       border-color: var(--primary);
-      background: #eef2fb;
+      background: var(--primary-light);
       color: var(--primary);
       transform: translateY(-1px);
     }
 
-    .link-btn .lb-icon {
-      font-size: 1.3rem;
-      flex-shrink: 0;
-    }
+    .link-btn .lb-icon { font-size: 1.3rem; flex-shrink: 0; }
 
     .link-btn .lb-meta {
       display: flex;
@@ -238,7 +246,7 @@
       font-size: 1rem;
     }
 
-    /* ─── BADGE TAGS ─── */
+    /* ─── TAGS ─── */
     .tag {
       display: inline-block;
       font-size: 0.72rem;
@@ -247,12 +255,13 @@
       border-radius: 20px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      flex-shrink: 0;
     }
 
     .tag-android { background: #dcfce7; color: #15803d; }
-    .tag-ios { background: #e0e7ff; color: #4338ca; }
-    .tag-web { background: #fef9c3; color: #854d0e; }
-    .tag-video { background: #fce7f3; color: #9d174d; }
+    .tag-ios     { background: #e0e7ff; color: #4338ca; }
+    .tag-web     { background: #fef9c3; color: #854d0e; }
+    .tag-video   { background: #fce7f3; color: #9d174d; }
 
     /* ─── DOCS LIST ─── */
     .doc-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
@@ -270,7 +279,7 @@
 
     .doc-list li .di { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
 
-    /* ─── NOTICE BOX ─── */
+    /* ─── NOTICE ─── */
     .notice {
       background: #eff6ff;
       border: 1px solid #bfdbfe;
@@ -292,16 +301,120 @@
 
     .notice-warn strong { color: #7c2d12; }
 
-    /* ─── DIVIDER ─── */
-    .divider {
-      height: 1px;
-      background: var(--border);
-      margin: 20px 0;
+    .notice-red {
+      background: var(--primary-light);
+      border-color: #f5a0ab;
+      color: var(--primary-dark);
     }
 
-    /* ─── GROUP CARD ─── */
+    .notice-red strong { color: var(--primary-dark); }
+
+    /* ─── DIVIDER ─── */
+    .divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+    /* ─── DICAS GRID ─── */
+    .dicas-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .dica-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      background: var(--light);
+      border-radius: 10px;
+      padding: 14px 16px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      border-left: 4px solid var(--primary);
+    }
+
+    .dica-num {
+      background: var(--primary);
+      color: white;
+      font-weight: 700;
+      font-size: 0.8rem;
+      min-width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ─── TUTORIAL ACCORDION ─── */
+    .accordion { display: flex; flex-direction: column; gap: 10px; }
+
+    .acc-item {
+      background: var(--white);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .acc-item.open { border-color: var(--primary); }
+
+    .acc-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 18px;
+      cursor: pointer;
+      user-select: none;
+      font-weight: 700;
+      font-size: 0.97rem;
+      color: var(--text);
+      transition: background 0.2s;
+    }
+
+    .acc-header:hover { background: var(--primary-light); }
+    .acc-item.open .acc-header { background: var(--primary-light); color: var(--primary-dark); }
+
+    .acc-icon { font-size: 1.2rem; }
+
+    .acc-arrow {
+      margin-left: auto;
+      font-size: 1rem;
+      color: var(--muted);
+      transition: transform 0.3s;
+    }
+
+    .acc-item.open .acc-arrow { transform: rotate(180deg); }
+
+    .acc-body {
+      display: none;
+      padding: 0 18px 18px;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: var(--text);
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+    }
+
+    .acc-item.open .acc-body { display: block; }
+
+    /* ─── MINI EXPLICACAO ─── */
+    .mini-exp {
+      background: var(--primary-light);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--primary-dark);
+      margin-bottom: 16px;
+      border-left: 4px solid var(--primary);
+    }
+
+    .mini-exp strong { display: block; margin-bottom: 4px; }
+
+    /* ─── GROUP CTA ─── */
     .group-cta {
-      background: linear-gradient(135deg, #1a3a6b 0%, #0f2347 100%);
+      background: linear-gradient(135deg, #8b0a1e 0%, var(--primary) 100%);
       border-radius: var(--radius);
       padding: 24px;
       text-align: center;
@@ -311,7 +424,7 @@
 
     .group-cta p {
       font-size: 0.93rem;
-      opacity: 0.85;
+      opacity: 0.9;
       margin-bottom: 16px;
       line-height: 1.6;
     }
@@ -332,6 +445,28 @@
 
     .group-cta a:hover { opacity: 0.9; }
 
+    /* ─── CLOSING MSG ─── */
+    .closing-msg {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      margin: 0 16px 32px;
+      max-width: 828px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      border-top: 4px solid var(--primary);
+    }
+
+    .closing-msg p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .closing-msg .emoji-big { font-size: 2rem; display: block; margin-bottom: 8px; }
+
     /* ─── FOOTER ─── */
     footer {
       text-align: center;
@@ -343,8 +478,10 @@
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 600px) {
-      header { padding: 32px 16px 24px; }
+      header { padding: 28px 16px 24px; }
       .card { padding: 18px 16px; }
+      .alert { margin: 16px; }
+      .alert-confirmed { font-size: 1.2rem; }
     }
   </style>
 </head>
@@ -352,29 +489,28 @@
 
 <!-- ══════════════ HEADER ══════════════ -->
 <header>
-  <div class="header-badge">🎓 Seja bem-vindo(a)!</div>
-  <h1>Tudo que você precisa<br/>para <span>começar seus estudos</span></h1>
-  <p>Aqui estão os links, aplicativos, tutoriais e orientações para dar os primeiros passos na UniFatecie EaD.</p>
+  <p class="header-welcome">Seja bem-vindo(a) à</p>
+  <img src="logo.png" alt="UniFatecie" class="header-logo" />
+  <p>Aqui você encontra tudo que precisa para dar os primeiros passos no seu curso EaD.</p>
 </header>
 
 <div class="tabs-wrapper">
 
-  <!-- ─── ALERT ─── -->
+  <!-- ─── ALERT MATRÍCULA ─── -->
   <div class="alert">
-    <span class="alert-icon">📧</span>
-    <div>
-      <strong>Matrícula confirmada!</strong><br/>
-      Em até <strong>24 horas</strong> você receberá por e-mail o seu <strong>número de matrícula (RA)</strong> e a <strong>senha</strong> para acessar todas as plataformas do aluno.
-    </div>
+    <span class="alert-confirmed">✅ Sua matrícula está confirmada!</span>
+    <p class="alert-body">
+      Em até <strong>24 horas</strong> você receberá <span class="highlight-email">por e-mail</span> o seu 
+      <strong>número de matrícula (RA)</strong> e a <strong>senha</strong> para acessar todas as plataformas do aluno.
+    </p>
   </div>
 
   <!-- ─── TAB NAV ─── -->
   <nav class="tab-nav" role="tablist">
     <button class="tab-btn active" onclick="showTab('apps', this)">📱 Aplicativos</button>
     <button class="tab-btn" onclick="showTab('portais', this)">🌐 Portais Web</button>
-    <button class="tab-btn" onclick="showTab('moodle', this)">📚 Moodle (Aulas)</button>
-    <button class="tab-btn" onclick="showTab('documentos', this)">📄 Documentos</button>
-    <button class="tab-btn" onclick="showTab('sub', this)">📝 Prova Sub</button>
+    <button class="tab-btn" onclick="showTab('moodle', this)">📚 Moodle</button>
+    <button class="tab-btn" onclick="showTab('dicas', this)">💡 Dicas Importantes</button>
     <button class="tab-btn" onclick="showTab('tutoriais', this)">🎬 Tutoriais</button>
     <button class="tab-btn" onclick="showTab('grupo', this)">💬 Grupo</button>
   </nav>
@@ -418,7 +554,7 @@
         App Moodle — Aulas & Conteúdos
       </div>
       <p style="font-size:0.9rem; color:var(--muted); margin-bottom:16px; line-height:1.6;">
-        Use para acessar suas disciplinas, assistir aulas, realizar atividades e provas. Após instalar, veja a aba <strong>Moodle (Aulas)</strong> para configurar o acesso.
+        Use para acessar suas disciplinas, assistir aulas, realizar atividades e provas. Após instalar, veja a aba <strong>Moodle</strong> para configurar o acesso.
       </p>
       <div class="link-group">
         <a class="link-btn" href="https://play.google.com/store/apps/details?id=com.moodle.moodlemobile" target="_blank">
@@ -453,7 +589,6 @@
         Acesso pelo Navegador (celular, tablet ou computador)
       </div>
       <div class="link-group">
-
         <a class="link-btn" href="https://portaldoaluno.fatecie.edu.br/login" target="_blank">
           <span class="lb-icon">🏠</span>
           <span class="lb-meta">
@@ -463,7 +598,6 @@
           <span class="tag tag-web">Web</span>
           <span class="lb-arrow">↗</span>
         </a>
-
         <a class="link-btn" href="https://waeweb.unifatecie.edu.br/servlet/hwalgn?1" target="_blank">
           <span class="lb-icon">💰</span>
           <span class="lb-meta">
@@ -473,7 +607,6 @@
           <span class="tag tag-web">Web</span>
           <span class="lb-arrow">↗</span>
         </a>
-
         <a class="link-btn" href="https://www.eadunifatecie.com.br/login/index.php" target="_blank">
           <span class="lb-icon">📚</span>
           <span class="lb-meta">
@@ -483,9 +616,7 @@
           <span class="tag tag-web">Web</span>
           <span class="lb-arrow">↗</span>
         </a>
-
       </div>
-
       <div class="notice" style="margin-top:16px;">
         <strong>💡 Dica de acesso</strong>
         Use o <strong>número de matrícula (RA)</strong> e a <strong>senha recebida por e-mail</strong> para entrar em todas as plataformas.
@@ -502,22 +633,19 @@
         <div class="icon">📚</div>
         Como configurar o App Moodle
       </div>
-
       <div class="steps">
         <div class="step">
           <div class="step-num"></div>
           <div class="step-body">
-            <strong>Instale o App Moodle</strong> pelo link da sua loja (veja a aba Aplicativos acima).
+            <strong>Instale o App Moodle</strong> pelo link da sua loja (veja a aba Aplicativos).
           </div>
         </div>
         <div class="step">
           <div class="step-num"></div>
           <div class="step-body">
-            Abra o aplicativo. Na primeira tela ele pede o <strong>endereço do site</strong>. Digite exatamente:
-            <br/><br/>
+            Abra o aplicativo. Na primeira tela ele pede o <strong>endereço do site</strong>. Digite exatamente:<br/><br/>
             <code style="background:var(--light); padding:6px 12px; border-radius:6px; font-size:0.95rem; display:inline-block; font-weight:700; color:var(--primary); letter-spacing:0.5px;">www.eadunifatecie.com.br</code>
-            <br/><br/>
-            Depois clique em <strong>Acessar</strong>.
+            <br/><br/>Depois clique em <strong>Acessar</strong>.
           </div>
         </div>
         <div class="step">
@@ -527,9 +655,7 @@
           </div>
         </div>
       </div>
-
       <div class="divider"></div>
-
       <div class="link-group">
         <a class="link-btn" href="https://www.eadunifatecie.com.br/login/index.php" target="_blank">
           <span class="lb-icon">🖥️</span>
@@ -553,149 +679,52 @@
 
   </div>
 
-  <!-- ══════════ TAB: DOCUMENTOS ══════════ -->
-  <div id="tab-documentos" class="tab-content">
+  <!-- ══════════ TAB: DICAS ══════════ -->
+  <div id="tab-dicas" class="tab-content">
 
     <div class="card">
       <div class="card-title">
-        <div class="icon">📄</div>
-        Como enviar seus documentos
+        <div class="icon">💡</div>
+        Informações Importantes sobre o seu Curso
       </div>
+      <div class="dicas-grid">
 
-      <div class="steps">
-        <div class="step">
-          <div class="step-num"></div>
-          <div class="step-body">Acesse o <strong>AlunoNet</strong> com sua matrícula e senha.</div>
+        <div class="dica-item">
+          <div class="dica-num">1</div>
+          <div>O conteúdo no Moodle fica disponível o tempo inteiro para você acessar na hora que for melhor, mas <strong>cada disciplina tem uma data limite para ser concluída</strong>.</div>
         </div>
-        <div class="step">
-          <div class="step-num"></div>
-          <div class="step-body">Clique em <strong>PROTOCOLO</strong> > <strong>ENTRADA DE REQUERIMENTO</strong>.</div>
+
+        <div class="dica-item">
+          <div class="dica-num">2</div>
+          <div>⚠️ Fique atento ao <strong>prazo de cada atividade</strong> — se passar da data, não é mais possível responder.</div>
         </div>
-        <div class="step">
-          <div class="step-num"></div>
-          <div class="step-body">Em "Selecione o tipo de requerimento", escolha <strong>DOCUMENTOS PARA MATRÍCULA EaD</strong>.</div>
+
+        <div class="dica-item">
+          <div class="dica-num">3</div>
+          <div>Cada atividade e prova tem <strong>duas tentativas</strong> de resposta, e vale a <strong>nota mais alta</strong> das duas.</div>
         </div>
-        <div class="step">
-          <div class="step-num"></div>
-          <div class="step-body">Clique em <strong>CONTINUAR</strong>.</div>
+
+        <div class="dica-item">
+          <div class="dica-num">4</div>
+          <div>A <strong>média necessária para aprovação é 6,0</strong>.</div>
         </div>
-        <div class="step">
-          <div class="step-num"></div>
-          <div class="step-body">Para cada documento: <strong>ANEXAR</strong> > <strong>SELECIONAR ARQUIVO</strong> > <strong>GRAVAR</strong>. Repita com cada arquivo.</div>
+
+        <div class="dica-item">
+          <div class="dica-num">5</div>
+          <div>O ensino é dividido em <strong>módulos de aproximadamente 3 meses</strong>. Novas disciplinas são liberadas automaticamente ao finalizar o módulo atual.</div>
         </div>
-        <div class="step">
-          <div class="step-num"></div>
-          <div class="step-body">Ao terminar todos, clique em <strong>SALVAR</strong> para enviar o requerimento.</div>
+
+        <div class="dica-item">
+          <div class="dica-num">6</div>
+          <div>Caso não atinja a média, você pode solicitar a <strong>Prova Substitutiva</strong> (recuperação), com taxa de <strong>R$ 10,00 por disciplina</strong>. Ela vale a mesma pontuação da última prova — por isso é importante não deixar de fazer as atividades!</div>
         </div>
+
+        <div class="dica-item">
+          <div class="dica-num">7</div>
+          <div>Se mesmo assim não passar, será necessário fazer <strong>Dependência</strong> (repetir toda a disciplina no próximo módulo), com taxa de <strong>R$ 35,00</strong> por disciplina (valor atual, sujeito a reajuste).</div>
+        </div>
+
       </div>
-
-      <div class="divider"></div>
-
-      <div class="card-title" style="margin-top:4px;">
-        <div class="icon">📋</div>
-        Documentos necessários
-      </div>
-
-      <div class="notice" style="margin-bottom:14px;">
-        <strong>⚠️ Atenção</strong>
-        Todos os documentos devem ser <strong>escaneados</strong> e salvos em <strong>arquivo PDF individual</strong>. Fotos tiradas pelo celular geralmente não são aceitas.
-      </div>
-
-      <ul class="doc-list">
-        <li>
-          <span class="di">🪪</span>
-          <div><strong>RG</strong> (frente e verso) — 1 arquivo PDF único</div>
-        </li>
-        <li>
-          <span class="di">🔢</span>
-          <div><strong>CPF</strong> — se já constar no RG, pode enviar o mesmo PDF. Se não, escaneie em arquivo separado.</div>
-        </li>
-        <li>
-          <span class="di">🏠</span>
-          <div><strong>Comprovante de Residência</strong> — 1 arquivo PDF</div>
-        </li>
-        <li>
-          <span class="di">📜</span>
-          <div><strong>Certidão de Nascimento</strong> — 1 arquivo PDF</div>
-        </li>
-        <li>
-          <span class="di">🎓</span>
-          <div><strong>Histórico Escolar do Ensino Médio</strong> (frente e verso) — 1 arquivo PDF</div>
-        </li>
-      </ul>
-
-      <div class="divider"></div>
-
-      <a class="link-btn" href="https://waeweb.unifatecie.edu.br/servlet/hwalgn?1" target="_blank">
-        <span class="lb-icon">🔗</span>
-        <span class="lb-meta">
-          Acessar o AlunoNet agora
-          <span class="lb-sub">Para envio dos documentos</span>
-        </span>
-        <span class="lb-arrow">↗</span>
-      </a>
-    </div>
-
-  </div>
-
-  <!-- ══════════ TAB: PROVA SUB ══════════ -->
-  <div id="tab-sub" class="tab-content">
-
-    <div class="card">
-      <div class="card-title">
-        <div class="icon">📝</div>
-        Como solicitar a Prova Substitutiva
-      </div>
-
-      <div class="steps">
-        <div class="step">
-          <div class="step-num"></div>
-          <div class="step-body">Acesse o <strong>AlunoNet</strong> com sua matrícula e senha.</div>
-        </div>
-        <div class="step">
-          <div class="step-num"></div>
-          <div class="step-body">Clique em <strong>PROTOCOLO</strong> > <strong>ENTRADA DE REQUERIMENTO</strong>.</div>
-        </div>
-        <div class="step">
-          <div class="step-num"></div>
-          <div class="step-body">Em "Selecione o tipo de requerimento", escolha <strong>PROVA SUBSTITUTIVA</strong>.</div>
-        </div>
-        <div class="step">
-          <div class="step-num"></div>
-          <div class="step-body">Selecione a <strong>disciplina</strong> desejada.</div>
-        </div>
-        <div class="step">
-          <div class="step-num"></div>
-          <div class="step-body">Clique em <strong>SALVAR / CONFIRMAR</strong> no final.</div>
-        </div>
-        <div class="step">
-          <div class="step-num"></div>
-          <div class="step-body">Será gerado um <strong>boleto de R$ 10,00</strong> que precisa ser pago para confirmar a solicitação.</div>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="notice notice-warn">
-        <strong>⚠️ Obs. 1 — Quem pode solicitar?</strong>
-        A Prova Substitutiva é apenas para quem <strong>já concluiu toda a disciplina</strong> (atividades e provas) e <strong>não alcançou a média 6,0</strong>.
-      </div>
-
-      <div class="notice notice-warn" style="margin-top:10px;">
-        <strong>⚠️ Obs. 2 — O que ela substitui?</strong>
-        A Prova Substitutiva <strong>vale a mesma pontuação da Prova Curricular</strong> (geralmente 6 pontos). A nota obtida será somada às atividades da disciplina — ela substitui apenas a Prova Curricular, não as outras atividades.
-      </div>
-
-      <div class="divider"></div>
-
-      <a class="link-btn" href="https://waeweb.unifatecie.edu.br/servlet/hwalgn?1" target="_blank">
-        <span class="lb-icon">🔗</span>
-        <span class="lb-meta">
-          Acessar o AlunoNet agora
-          <span class="lb-sub">Para solicitar a Prova Substitutiva</span>
-        </span>
-        <span class="lb-arrow">↗</span>
-      </a>
     </div>
 
   </div>
@@ -706,53 +735,260 @@
     <div class="card">
       <div class="card-title">
         <div class="icon">🎬</div>
-        Tutoriais em Vídeo
+        Tutoriais Passo a Passo
       </div>
-      <div class="link-group">
-        <a class="link-btn" href="https://www.youtube.com/watch?v=2P8ep0jX7Us&t=85s" target="_blank">
-          <span class="lb-icon">▶️</span>
-          <span class="lb-meta">
-            Portal do Aluno
-            <span class="lb-sub">Como acessar e navegar no portal</span>
-          </span>
-          <span class="tag tag-video">Vídeo</span>
-          <span class="lb-arrow">↗</span>
-        </a>
-        <a class="link-btn" href="https://www.youtube.com/watch?v=6KRhooaUpvQ" target="_blank">
-          <span class="lb-icon">▶️</span>
-          <span class="lb-meta">
-            Acesso às Aulas
-            <span class="lb-sub">Como entrar nas disciplinas e aulas</span>
-          </span>
-          <span class="tag tag-video">Vídeo</span>
-          <span class="lb-arrow">↗</span>
-        </a>
-        <a class="link-btn" href="https://www.youtube.com/watch?v=-TwYoF6Y0Uk" target="_blank">
-          <span class="lb-icon">▶️</span>
-          <span class="lb-meta">
-            AlunoNet
-            <span class="lb-sub">Financeiro, boletos e protocolos</span>
-          </span>
-          <span class="tag tag-video">Vídeo</span>
-          <span class="lb-arrow">↗</span>
-        </a>
-        <a class="link-btn" href="https://youtu.be/SkQacuRq50k?si=vZie-rO0_-7LNkpf" target="_blank">
-          <span class="lb-icon">▶️</span>
-          <span class="lb-meta">
-            Dicas sobre o Moodle
-            <span class="lb-sub">Como usar a plataforma de estudos</span>
-          </span>
-          <span class="tag tag-video">Vídeo</span>
-          <span class="lb-arrow">↗</span>
-        </a>
-      </div>
+
+      <div class="accordion">
+
+        <!-- ENVIAR DOCUMENTOS -->
+        <div class="acc-item open" id="acc-docs">
+          <div class="acc-header" onclick="toggleAcc('acc-docs')">
+            <span class="acc-icon">📄</span>
+            Como enviar os documentos
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <a class="link-btn" href="https://drive.google.com/file/d/1EJ7III8TNaiPVUVk-uwMYrRvFQF_3fcd/view?usp=drive_link" target="_blank" style="margin-bottom:16px;">
+              <span class="lb-icon">▶️</span>
+              <span class="lb-meta">
+                Assistir ao vídeo passo a passo
+                <span class="lb-sub">Google Drive — Como enviar documentos</span>
+              </span>
+              <span class="tag tag-video">Vídeo</span>
+              <span class="lb-arrow">↗</span>
+            </a>
+
+            <div class="steps" style="margin-top:4px;">
+              <div class="step">
+                <div class="step-num"></div>
+                <div class="step-body">Acesse o <strong>AlunoNet</strong> com sua matrícula e senha.</div>
+              </div>
+              <div class="step">
+                <div class="step-num"></div>
+                <div class="step-body">Clique em <strong>PROTOCOLO</strong> > <strong>ENTRADA DE REQUERIMENTO</strong>.</div>
+              </div>
+              <div class="step">
+                <div class="step-num"></div>
+                <div class="step-body">Em "Selecione o tipo de requerimento", escolha <strong>DOCUMENTOS PARA MATRÍCULA EaD</strong>.</div>
+              </div>
+              <div class="step">
+                <div class="step-num"></div>
+                <div class="step-body">Clique em <strong>CONTINUAR</strong>.</div>
+              </div>
+              <div class="step">
+                <div class="step-num"></div>
+                <div class="step-body">Para cada documento: <strong>ANEXAR</strong> > <strong>SELECIONAR ARQUIVO</strong> > <strong>GRAVAR</strong>. Repita com cada arquivo.</div>
+              </div>
+              <div class="step">
+                <div class="step-num"></div>
+                <div class="step-body">Ao terminar, clique em <strong>SALVAR</strong> para enviar o requerimento.</div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <p style="font-weight:700; font-size:0.93rem; margin-bottom:10px; color:var(--primary-dark);">📋 Documentos necessários:</p>
+            <div class="notice notice-warn" style="margin-top:0; margin-bottom:12px;">
+              <strong>⚠️ Atenção</strong>
+              Todos os documentos devem ser <strong>escaneados</strong> e salvos em <strong>arquivo PDF individual</strong>.
+            </div>
+            <ul class="doc-list">
+              <li><span class="di">🪪</span><div><strong>RG</strong> (frente e verso) — 1 arquivo PDF único</div></li>
+              <li><span class="di">🔢</span><div><strong>CPF</strong> — se já constar no RG, pode enviar o mesmo PDF duas vezes. Se não, escaneie em arquivo separado.</div></li>
+              <li><span class="di">🏠</span><div><strong>Comprovante de Residência</strong> — 1 arquivo PDF</div></li>
+              <li><span class="di">📜</span><div><strong>Certidão de Nascimento</strong> — 1 arquivo PDF</div></li>
+              <li><span class="di">🎓</span><div><strong>Histórico Escolar do Ensino Médio</strong> (frente e verso) — 1 arquivo PDF</div></li>
+            </ul>
+
+            <div style="margin-top:14px;">
+              <a class="link-btn" href="https://waeweb.unifatecie.edu.br/servlet/hwalgn?1" target="_blank">
+                <span class="lb-icon">🔗</span>
+                <span class="lb-meta">Acessar o AlunoNet agora<span class="lb-sub">Para envio dos documentos</span></span>
+                <span class="lb-arrow">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROVA SUBSTITUTIVA -->
+        <div class="acc-item" id="acc-sub">
+          <div class="acc-header" onclick="toggleAcc('acc-sub')">
+            <span class="acc-icon">📝</span>
+            Como solicitar a Prova Substitutiva (Sub)
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <div class="mini-exp">
+              <strong>📌 O que é a Prova Substitutiva?</strong>
+              É uma forma de <strong>recuperação</strong> para alunos que já concluíram toda a disciplina (atividades e provas) mas não alcançaram a média 6,0. Ela substitui a nota da Prova Curricular e tem uma taxa de <strong>R$ 10,00 por disciplina</strong>. Importante: ela não substitui as atividades, por isso não deixe de realizá-las!
+            </div>
+            <div class="steps">
+              <div class="step">
+                <div class="step-num"></div>
+                <div class="step-body">Acesse o <strong>AlunoNet</strong> com sua matrícula e senha.</div>
+              </div>
+              <div class="step">
+                <div class="step-num"></div>
+                <div class="step-body">Clique em <strong>PROTOCOLO</strong> > <strong>ENTRADA DE REQUERIMENTO</strong>.</div>
+              </div>
+              <div class="step">
+                <div class="step-num"></div>
+                <div class="step-body">Em "Selecione o tipo de requerimento", escolha <strong>PROVA SUBSTITUTIVA</strong>.</div>
+              </div>
+              <div class="step">
+                <div class="step-num"></div>
+                <div class="step-body">Selecione a <strong>disciplina</strong> desejada.</div>
+              </div>
+              <div class="step">
+                <div class="step-num"></div>
+                <div class="step-body">Clique em <strong>SALVAR / CONFIRMAR</strong> no final.</div>
+              </div>
+              <div class="step">
+                <div class="step-num"></div>
+                <div class="step-body">Será gerado um <strong>boleto de R$ 10,00</strong> que precisa ser pago para confirmar a solicitação.</div>
+              </div>
+            </div>
+            <div class="notice notice-warn" style="margin-top:14px;">
+              <strong>⚠️ Atenção</strong>
+              A Prova Substitutiva vale a mesma pontuação da Prova Curricular. A nota obtida será somada às atividades da disciplina — ela <strong>substitui apenas a Prova Curricular</strong>, não as outras atividades.
+            </div>
+            <div style="margin-top:14px;">
+              <a class="link-btn" href="https://waeweb.unifatecie.edu.br/servlet/hwalgn?1" target="_blank">
+                <span class="lb-icon">🔗</span>
+                <span class="lb-meta">Acessar o AlunoNet agora<span class="lb-sub">Para solicitar a Prova Substitutiva</span></span>
+                <span class="lb-arrow">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- DEPENDÊNCIA -->
+        <div class="acc-item" id="acc-dp">
+          <div class="acc-header" onclick="toggleAcc('acc-dp')">
+            <span class="acc-icon">🔄</span>
+            Como solicitar a Dependência (DP)
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <div class="mini-exp">
+              <strong>📌 O que é a Dependência (DP)?</strong>
+              É quando o aluno não atingiu a média mesmo após a Prova Substitutiva e precisa <strong>repetir toda a disciplina no próximo módulo</strong>. A taxa é de <strong>R$ 35,00 por disciplina</strong> (valor atual, sujeito a reajuste).
+            </div>
+            <div class="steps">
+              <div class="step">
+                <div class="step-num"></div>
+                <div class="step-body">Acesse o <strong>AlunoNet</strong> com sua matrícula e senha.</div>
+              </div>
+              <div class="step">
+                <div class="step-num"></div>
+                <div class="step-body">Clique em <strong>PROTOCOLO</strong> > <strong>ENTRADA DE REQUERIMENTO</strong>.</div>
+              </div>
+              <div class="step">
+                <div class="step-num"></div>
+                <div class="step-body">Em "Selecione o tipo de requerimento", escolha <strong>DEPENDÊNCIA</strong>.</div>
+              </div>
+              <div class="step">
+                <div class="step-num"></div>
+                <div class="step-body">Selecione a <strong>disciplina</strong> que precisa repetir.</div>
+              </div>
+              <div class="step">
+                <div class="step-num"></div>
+                <div class="step-body">Clique em <strong>SALVAR / CONFIRMAR</strong>.</div>
+              </div>
+              <div class="step">
+                <div class="step-num"></div>
+                <div class="step-body">Será gerado um <strong>boleto de R$ 35,00</strong> por disciplina que precisa ser pago.</div>
+              </div>
+            </div>
+            <div class="notice notice-red" style="margin-top:14px;">
+              <strong>💡 Dica</strong>
+              Realize todas as atividades e a Prova Substitutiva antes de recorrer à Dependência — além de mais econômico, evita atrasar o andamento do seu curso.
+            </div>
+            <div style="margin-top:14px;">
+              <a class="link-btn" href="https://waeweb.unifatecie.edu.br/servlet/hwalgn?1" target="_blank">
+                <span class="lb-icon">🔗</span>
+                <span class="lb-meta">Acessar o AlunoNet agora<span class="lb-sub">Para solicitar a Dependência</span></span>
+                <span class="lb-arrow">↗</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PORTAL DO ALUNO -->
+        <div class="acc-item" id="acc-portal">
+          <div class="acc-header" onclick="toggleAcc('acc-portal')">
+            <span class="acc-icon">🏠</span>
+            Tutorial: Portal do Aluno
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <a class="link-btn" href="https://www.youtube.com/watch?v=2P8ep0jX7Us&t=85s" target="_blank">
+              <span class="lb-icon">▶️</span>
+              <span class="lb-meta">Assistir ao tutorial<span class="lb-sub">YouTube — Como acessar e navegar no portal</span></span>
+              <span class="tag tag-video">Vídeo</span>
+              <span class="lb-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- ACESSO ÀS AULAS -->
+        <div class="acc-item" id="acc-aulas">
+          <div class="acc-header" onclick="toggleAcc('acc-aulas')">
+            <span class="acc-icon">🎓</span>
+            Tutorial: Acesso às Aulas
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <a class="link-btn" href="https://www.youtube.com/watch?v=6KRhooaUpvQ" target="_blank">
+              <span class="lb-icon">▶️</span>
+              <span class="lb-meta">Assistir ao tutorial<span class="lb-sub">YouTube — Como entrar nas disciplinas e aulas</span></span>
+              <span class="tag tag-video">Vídeo</span>
+              <span class="lb-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- ALUNONET -->
+        <div class="acc-item" id="acc-alunonet">
+          <div class="acc-header" onclick="toggleAcc('acc-alunonet')">
+            <span class="acc-icon">💰</span>
+            Tutorial: AlunoNet (Financeiro)
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <a class="link-btn" href="https://www.youtube.com/watch?v=-TwYoF6Y0Uk" target="_blank">
+              <span class="lb-icon">▶️</span>
+              <span class="lb-meta">Assistir ao tutorial<span class="lb-sub">YouTube — Boletos, financeiro e protocolos</span></span>
+              <span class="tag tag-video">Vídeo</span>
+              <span class="lb-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- MOODLE DICAS -->
+        <div class="acc-item" id="acc-moodle-v">
+          <div class="acc-header" onclick="toggleAcc('acc-moodle-v')">
+            <span class="acc-icon">📚</span>
+            Tutorial: Dicas sobre o Moodle
+            <span class="acc-arrow">▼</span>
+          </div>
+          <div class="acc-body">
+            <a class="link-btn" href="https://youtu.be/SkQacuRq50k?si=vZie-rO0_-7LNkpf" target="_blank">
+              <span class="lb-icon">▶️</span>
+              <span class="lb-meta">Assistir ao tutorial<span class="lb-sub">YouTube — Dicas para usar o Moodle</span></span>
+              <span class="tag tag-video">Vídeo</span>
+              <span class="lb-arrow">↗</span>
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /accordion -->
     </div>
 
   </div>
 
   <!-- ══════════ TAB: GRUPO ══════════ -->
   <div id="tab-grupo" class="tab-content">
-
     <div class="card">
       <div class="card-title">
         <div class="icon">💬</div>
@@ -764,16 +1000,25 @@
       <div class="group-cta">
         <p>Clique abaixo para entrar no grupo e ficar por dentro de tudo!</p>
         <a href="https://chat.whatsapp.com/KnAh5ZkJMhP3TZKZKrvMZ6" target="_blank">
-          <!-- WhatsApp SVG icon inline -->
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.22-1.57A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.22-3.48-8.52zM12 22c-1.85 0-3.66-.5-5.23-1.43l-.37-.22-3.69.93.98-3.58-.24-.38A9.93 9.93 0 0 1 2 12C2 6.48 6.48 2 12 2c2.66 0 5.16 1.04 7.04 2.93A9.93 9.93 0 0 1 22 12c0 5.52-4.48 10-10 10zm5.47-7.36c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49-.9-.8-1.5-1.78-1.68-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.68-1.64-.93-2.24-.24-.58-.49-.5-.68-.51H7.2c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.27.5 1.7.64.72.23 1.37.2 1.88.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.28-.2-.58-.35z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+            <path d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.22-1.57A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.22-3.48-8.52zM12 22c-1.85 0-3.66-.5-5.23-1.43l-.37-.22-3.69.93.98-3.58-.24-.38A9.93 9.93 0 0 1 2 12C2 6.48 6.48 2 12 2c2.66 0 5.16 1.04 7.04 2.93A9.93 9.93 0 0 1 22 12c0 5.52-4.48 10-10 10zm5.47-7.36c-.3-.15-1.77-.87-2.04-.97-.28-.1-.48-.15-.68.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.49-.9-.8-1.5-1.78-1.68-2.08-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.68-1.64-.93-2.24-.24-.58-.49-.5-.68-.51H7.2c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.27.5 1.7.64.72.23 1.37.2 1.88.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.28-.2-.58-.35z"/>
+          </svg>
           Entrar no Grupo do WhatsApp
         </a>
       </div>
     </div>
-
   </div>
 
 </div><!-- /tabs-wrapper -->
+
+<!-- ══════════════ MENSAGEM FINAL ══════════════ -->
+<div class="closing-msg">
+  <span class="emoji-big">🎓</span>
+  <p>
+    E é isso! Qualquer dúvida ou dificuldade, estou à disposição.<br/>
+    <strong>Seja bem-vindo(a) e bons estudos!</strong>
+  </p>
+</div>
 
 <footer>
   UniFatecie EaD — Página de boas-vindas para novos alunos · Dúvidas? Fale com seu orientador.
@@ -781,14 +1026,20 @@
 
 <script>
   function showTab(name, btn) {
-    // hide all
     document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
     document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-    // show selected
     document.getElementById('tab-' + name).classList.add('active');
     btn.classList.add('active');
-    // smooth scroll to tabs on mobile
-    document.querySelector('.tab-nav').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function toggleAcc(id) {
+    const item = document.getElementById(id);
+    const isOpen = item.classList.contains('open');
+    // fecha todos
+    document.querySelectorAll('.acc-item').forEach(el => el.classList.remove('open'));
+    // abre o clicado, se não estava aberto
+    if (!isOpen) item.classList.add('open');
   }
 </script>
 
