@@ -92,11 +92,11 @@
       text-underline-offset: 3px;
     }
 
-    /* ─── TABS ─── */
+    /* ─── TABS PRINCIPAIS ─── */
     .tabs-wrapper {
       max-width: 860px;
       margin: 0 auto;
-      padding: 0 16px 80px;
+      padding: 0 16px 40px;
     }
 
     .tab-nav {
@@ -270,8 +270,7 @@
 
     .doc-list li .di { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
 
-    /* ─── NOTICE ─── */
-    /* CORREÇÃO PRINCIPAL: tudo inline, sem p dentro */
+    /* ─── NOTICE / MINI-EXP ─── */
     .notice,
     .notice-warn,
     .notice-red {
@@ -300,7 +299,6 @@
       color: var(--primary-dark);
     }
 
-    /* strong NUNCA vira bloco dentro de avisos e mini-exp */
     .notice strong,
     .notice-warn strong,
     .notice-red strong,
@@ -309,6 +307,17 @@
       display: inline;
       font-weight: 700;
       margin: 0;
+    }
+
+    .mini-exp {
+      background: var(--primary-light);
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: var(--primary-dark);
+      margin-bottom: 16px;
+      border-left: 4px solid var(--primary);
     }
 
     /* ─── DIVIDER ─── */
@@ -395,19 +404,6 @@
 
     .acc-item.open .acc-body { display: block; }
 
-    /* ─── MINI EXPLICAÇÃO ─── */
-    /* CORREÇÃO: sem <p> dentro, texto corre naturalmente */
-    .mini-exp {
-      background: var(--primary-light);
-      border-radius: 8px;
-      padding: 12px 14px;
-      font-size: 0.88rem;
-      line-height: 1.7;
-      color: var(--primary-dark);
-      margin-bottom: 16px;
-      border-left: 4px solid var(--primary);
-    }
-
     /* ─── GROUP CTA ─── */
     .group-cta {
       background: linear-gradient(135deg, #4d4f53 0%, #2f3337 100%);
@@ -440,6 +436,129 @@
     }
 
     .group-cta a:hover { opacity: 0.9; }
+
+    /* ─── NOVO CONJUNTO DE TABS (REDES) ─── */
+    .social-wrapper {
+      max-width: 860px;
+      margin: 0 auto 32px;
+      padding: 0 16px 0;
+    }
+
+    .social-header {
+      text-align: center;
+      margin: 8px 0 16px;
+    }
+
+    .social-header h2 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .social-header p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .social-tabs {
+      display: inline-flex;
+      background: #e5e7eb;
+      border-radius: 999px;
+      padding: 4px;
+      gap: 4px;
+      margin: 16px auto 20px;
+    }
+
+    .social-tab-btn {
+      border: none;
+      background: transparent;
+      border-radius: 999px;
+      padding: 6px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #4b5563;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .social-tab-btn span.icon {
+      font-size: 1.1rem;
+    }
+
+    .social-tab-btn.active {
+      background: var(--white);
+      color: var(--primary-dark);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .social-content { display: none; }
+    .social-content.active { display: block; }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 10px;
+    }
+
+    @media (max-width: 640px) {
+      .social-grid { grid-template-columns: minmax(0,1fr); }
+    }
+
+    .social-card {
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 14px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    }
+
+    .social-card:hover {
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      transform: translateY(-1px);
+      border-color: var(--primary);
+    }
+
+    .social-card-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .social-card-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .social-card-link {
+      margin-top: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .social-card-link span.arrow {
+      font-size: 0.9rem;
+    }
+
+    .social-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 10px;
+    }
 
     /* ─── CLOSING MSG ─── */
     .closing-msg {
@@ -511,16 +630,14 @@
 </head>
 <body>
 
-<!-- ══════════════ HEADER ══════════════ -->
 <header>
   <p class="header-welcome">Seja bem-vindo(a) à</p>
-  <img src="logo.png" alt="UniFatecie" class="header-logo" />
+  <img src="LOGO_UNIFATECIE_EAD.jpg" alt="UniFatecie" class="header-logo" />
   <p class="header-sub">Polo Barra do Mendes | Polo Ipupiara</p>
 </header>
 
 <div class="tabs-wrapper">
 
-  <!-- ─── ALERT MATRÍCULA ─── -->
   <div class="alert">
     <span class="alert-confirmed">✅ Sua matrícula está confirmada!</span>
     <p class="alert-body">
@@ -1018,6 +1135,396 @@
 
 </div><!-- /tabs-wrapper -->
 
+<!-- ═════════ NOVA SEÇÃO: REDES & COMUNIDADES ═════════ -->
+<section class="social-wrapper">
+  <div class="social-header">
+    <h2>Redes & Comunidades do Seu Curso</h2>
+    <p>Entre nos canais oficiais para receber novidades, eventos e tirar dúvidas com outros alunos.</p>
+
+    <div class="social-tabs">
+      <button class="social-tab-btn active" onclick="showSocial('instagram', this)">
+        <span class="icon">📸</span> Instagram
+      </button>
+      <button class="social-tab-btn" onclick="showSocial('whatsapp', this)">
+        <span class="icon">💬</span> WhatsApp
+      </button>
+      <button class="social-tab-btn" onclick="showSocial('telegram', this)">
+        <span class="icon">📢</span> Telegram
+      </button>
+    </div>
+  </div>
+
+  <!-- Instagram -->
+  <div id="social-instagram" class="social-content active">
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-title">
+        <div class="icon">📸</div>
+        Siga no Instagram e acompanhe os eventos do seu curso
+      </div>
+      <p style="font-size:0.9rem; color:var(--muted); margin-bottom:12px;">
+        Escolha o perfil de acordo com a sua área para acompanhar avisos, eventos, lives e conteúdos exclusivos.
+      </p>
+
+      <div class="social-grid">
+        <div class="social-card">
+          <div class="social-card-title">Contabilidade e Economia</div>
+          <div class="social-card-desc">Conteúdos e novidades para cursos de negócios financeiros.</div>
+          <a class="social-card-link" href="https://www.instagram.com/contec_unifatecie/?igsh=ODA3dzcxc2hya3Z4" target="_blank">
+            Abrir Instagram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Gestão e Negócios</div>
+          <div class="social-card-desc">Administração, gestão, empreendedorismo e áreas correlatas.</div>
+          <a class="social-card-link" href="https://www.instagram.com/gestao.unifatecie/profilecard/?source=omni_redirect" target="_blank">
+            Abrir Instagram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Letras e Pedagogia</div>
+          <div class="social-card-desc">Cursos de licenciatura e formação de professores.</div>
+          <a class="social-card-link" href="https://www.instagram.com/cile.pe/profilecard/?source=omni_redirect" target="_blank">
+            Abrir Instagram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Nutrição e Beleza</div>
+          <div class="social-card-desc">Nutrição, estética e áreas relacionadas à saúde e beleza.</div>
+          <a class="social-card-link" href="https://www.instagram.com/nutricaoebeleza.unifatecie/profilecard/?source=omni_redirect" target="_blank">
+            Abrir Instagram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Ciências Humanas, Sociais e Naturais</div>
+          <div class="social-card-desc">Cursos de humanas, sociais aplicadas e ciências da natureza.</div>
+          <a class="social-card-link" href="https://www.instagram.com/humanas.unifatecie/profilecard/" target="_blank">
+            Abrir Instagram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Engenharias e Tecnologias</div>
+          <div class="social-card-desc">Engenharias, tecnologia e inovação.</div>
+          <a class="social-card-link" href="https://www.instagram.com/engenharias_unifatecie/profilecard/" target="_blank">
+            Abrir Instagram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Saúde, Cuidados e Vida</div>
+          <div class="social-card-desc">Cursos da área da saúde e bem-estar.</div>
+          <a class="social-card-link" href="https://www.instagram.com/sacv.unifatecie/profilecard/" target="_blank">
+            Abrir Instagram <span class="arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WhatsApp -->
+  <div id="social-whatsapp" class="social-content">
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-title">
+        <div class="icon">💬</div>
+        Grupos de WhatsApp por área de curso
+      </div>
+      <p style="font-size:0.9rem; color:var(--muted); margin-bottom:12px;">
+        Entre no grupo correspondente à sua área. Assim você recebe avisos específicos do seu curso.
+      </p>
+
+      <div class="social-grid">
+        <div class="social-card">
+          <div class="social-card-title">Licenciaturas</div>
+          <div class="social-card-desc">
+            Pedagogia, Educação Especial, Letras, Geografia, História, Matemática, Física, Sociologia, Educação Física e Ciências Biológicas.
+          </div>
+          <a class="social-card-link" href="https://chat.whatsapp.com/D4O9isOEvX6EOyLFsk6rQ6?mode=ems_copy_t" target="_blank">
+            Entrar no grupo <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Saúde</div>
+          <div class="social-card-desc">
+            Farmácia, Fonoaudiologia, Biomedicina, Terapia Ocupacional, Nutrição, Fisioterapia, Ed. Física (Bacharelado), Radiologia, Estética e Cosmética.
+          </div>
+          <a class="social-card-link" href="https://chat.whatsapp.com/EiVP7v5xYxZBYblJ8wlHyR?mode=ems_copy_t" target="_blank">
+            Entrar no grupo <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Gestão, Negócios e Contabilidade</div>
+          <div class="social-card-desc">
+            Cursos da área de gestão, negócios, contabilidade e economia.
+          </div>
+          <a class="social-card-link" href="https://chat.whatsapp.com/IvA9AmuZRduCr8tCug45U5" target="_blank">
+            Entrar no grupo <span class="arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <p class="social-note">Se o seu curso estiver em mais de uma área, você pode participar de mais de um grupo.</p>
+    </div>
+  </div>
+
+  <!-- Telegram -->
+  <div id="social-telegram" class="social-content">
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-title">
+        <div class="icon">📢</div>
+        Canais e Grupos no Telegram
+      </div>
+      <p style="font-size:0.9rem; color:var(--muted); margin-bottom:12px;">
+        Alguns cursos também utilizam o Telegram para avisos e materiais complementares. Escolha abaixo os canais que forem indicados para você.
+      </p>
+
+      <div class="social-grid">
+        <div class="social-card">
+          <div class="social-card-title">Canal 1</div>
+          <div class="social-card-desc">Canal específico para uma área ou curso (preencha a descrição depois).</div>
+          <a class="social-card-link" href="https://t.me/+9zpP_5QsImFmY2Yx" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Canal 2</div>
+          <div class="social-card-desc">Canal específico para uma área ou curso (preencha a descrição depois).</div>
+          <a class="social-card-link" href="https://t.me/+iaWEyG-Xy3w3NTJh" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Canal 3</div>
+          <div class="social-card-desc">Canal específico para uma área ou curso (preencha a descrição depois).</div>
+          <a class="social-card-link" href="https://t.me/+s-OpzTz6l45hNjYx" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Canal 4</div>
+          <div class="social-card-desc">Canal específico para uma área ou curso (preencha a descrição depois).</div>
+          <a class="social-card-link" href="https://t.me/+R1PAEJe6B7kzZGIx" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Canal 5</div>
+          <div class="social-card-desc">Canal específico para uma área ou curso (preencha a descrição depois).</div>
+          <a class="social-card-link" href="https://t.me/+QZifVtujnLAxNjEx" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Canal 6</div>
+          <div class="social-card-desc">Canal específico para uma área ou curso (preencha a descrição depois).</div>
+          <a class="social-card-link" href="https://t.me/+jsYPZkdE2204ZDg5" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Canal 7</div>
+          <div class="social-card-desc">Canal específico para uma área ou curso (preencha a descrição depois).</div>
+          <a class="social-card-link" href="https://t.me/+LBtXbrk8IAVhYmMx" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Canal 8</div>
+          <div class="social-card-desc">Canal específico para uma área ou curso (preencha a descrição depois).</div>
+          <a class="social-card-link" href="https://t.me/+RWTRL2hElMo0NjZh" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Canal 9</div>
+          <div class="social-card-desc">Canal específico para uma área ou curso (preencha a descrição depois).</div>
+          <a class="social-card-link" href="https://t.me/+LRPcquEPgv01MWEx" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Canal 10</div>
+          <div class="social-card-desc">Canal específico para uma área ou curso (preencha a descrição depois).</div>
+          <a class="social-card-link" href="https://t.me/+cXQCfDTA_dVhYmIx" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Canal 11</div>
+          <div class="social-card-desc">Canal específico para uma área ou curso (preencha a descrição depois).</div>
+          <a class="social-card-link" href="https://t.me/+YT6Nka_17ME1MTgx" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+  <!-- Telegram -->
+  <div id="social-telegram" class="social-content">
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-title">
+        <div class="icon">📢</div>
+        Canais e Grupos no Telegram
+      </div>
+      <p style="font-size:0.9rem; color:var(--muted); margin-bottom:12px;">
+        Alguns cursos também utilizam o Telegram para avisos e materiais complementares. Clique no canal do seu curso para participar.
+      </p>
+
+      <div class="social-grid">
+        <!-- LICENCIATURAS / EDUCAÇÃO -->
+        <div class="social-card">
+          <div class="social-card-title">Pedagogia</div>
+          <div class="social-card-desc">
+            Canal oficial com aulas, projetos e avisos do curso de Pedagogia.
+          </div>
+          <a class="social-card-link" href="https://t.me/+cXQCfDTA_dVhYmIx" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Letras – Português e Inglês</div>
+          <div class="social-card-desc">
+            Canal oficial para alunos de Letras (Português e Inglês).
+          </div>
+          <a class="social-card-link" href="https://t.me/+YT6Nka_17ME1MTgx" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Letras – Português e Libras</div>
+          <div class="social-card-desc">
+            Canal oficial para alunos de Letras (Português e Libras).
+          </div>
+          <a class="social-card-link" href="https://t.me/+j91QY_03dktlZTdh" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Psicopedagogia</div>
+          <div class="social-card-desc">
+            Canal com materiais, projetos e avisos do curso de Psicopedagogia.
+          </div>
+          <a class="social-card-link" href="https://t.me/+OzePJoxVRr9iMjUx" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Processos Escolares</div>
+          <div class="social-card-desc">
+            Avisos importantes e informações do curso de Processos Escolares.
+          </div>
+          <a class="social-card-link" href="https://t.me/+TcLiZuXc8_82NTMx" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <!-- SAÚDE -->
+        <div class="social-card">
+          <div class="social-card-title">Biomedicina</div>
+          <div class="social-card-desc">
+            Canal oficial para alunos do curso de Biomedicina.
+          </div>
+          <a class="social-card-link" href="https://t.me/+jsYPZkdE2204ZDg5" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Terapia Ocupacional</div>
+          <div class="social-card-desc">
+            Avisos e conteúdos complementares para Terapia Ocupacional.
+          </div>
+          <a class="social-card-link" href="https://t.me/+QZifVtujnLAxNjEx" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Fisioterapia</div>
+          <div class="social-card-desc">
+            Canal oficial para alunos do curso de Fisioterapia.
+          </div>
+          <a class="social-card-link" href="https://t.me/+R1PAEJe6B7kzZGIx" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Farmácia</div>
+          <div class="social-card-desc">
+            Informes, aulas e projetos do curso de Farmácia.
+          </div>
+          <a class="social-card-link" href="https://t.me/+s-OpzTz6l45hNjYx" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Fonoaudiologia</div>
+          <div class="social-card-desc">
+            Canal oficial para o curso de Fonoaudiologia.
+          </div>
+          <a class="social-card-link" href="https://t.me/+iaWEyG-Xy3w3NTJh" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Educação Física</div>
+          <div class="social-card-desc">
+            Comunicações oficiais para alunos de Educação Física.
+          </div>
+          <a class="social-card-link" href="https://t.me/+9zpP_5QsImFmY2Yx" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Gerontologia</div>
+          <div class="social-card-desc">
+            Canal para alunos de Gerontologia, com avisos e conteúdos extras.
+          </div>
+          <a class="social-card-link" href="https://t.me/+e74wKccS1_kzMDFh" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="social-card">
+          <div class="social-card-title">Massoterapia</div>
+          <div class="social-card-desc">
+            Informações e materiais para alunos de Massoterapia.
+          </div>
+          <a class="social-card-link" href="https://t.me/+lDKAhGVN0aM4MTIx" target="_blank">
+            Abrir no Telegram <span class="arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <p class="social-note">
+        Se tiver dúvida sobre qual canal do Telegram usar, fale com a Gestora do Polo para receber a indicação correta.
+      </p>
+    </div>
+  </div>
+</section>
+      
 <!-- ══════════════ MENSAGEM FINAL ══════════════ -->
 <div class="closing-msg">
   <span class="emoji-big">🎓</span>
@@ -1049,6 +1556,13 @@
     const isOpen = item.classList.contains('open');
     document.querySelectorAll('.acc-item').forEach(el => el.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
+  }
+
+  function showSocial(name, btn) {
+    document.querySelectorAll('.social-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.social-tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('social-' + name).classList.add('active');
+    btn.classList.add('active');
   }
 </script>
 
