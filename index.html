@@ -210,6 +210,75 @@
   padding-bottom: 6px;
   border-bottom: 1px solid var(--border);
 }
+   
+    /* ─── ATENDIMENTO VIP ─── */
+.vip-atendimento {
+  background: var(--primary);
+  color: var(--white);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin: 24px auto;
+  max-width: 720px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.vip-atendimento .vip-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.vip-atendimento .vip-title .icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.vip-atendimento p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  margin-bottom: 16px;
+}
+
+.vip-atendimento .vip-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  color: var(--primary-dark);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  border-radius: 30px;
+  transition: all 0.2s;
+  margin-bottom: 16px;
+}
+
+.vip-atendimento .vip-link:hover {
+  background: var(--light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.vip-atendimento .vip-horarios {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  opacity: 0.8;
+}
+
+.vip-atendimento .vip-horarios strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+  opacity: 1;
+}
+    
     /* ─── STEPS ─── */
     .steps { counter-reset: step; display: flex; flex-direction: column; gap: 12px; }
 
@@ -682,8 +751,32 @@
     <span class="alert-confirmed">✅ Encontre aqui tudo que você precisa para iniciar seus estudos!</span>
   </div>
 
-<div style="max-width:860px; margin:0 auto 0; padding:0 16px;">
-  <div style="border-top:4px solid var(--primary); padding-top:28px; text-align:center; margin-bottom:0;">
+    <!-- ══════════════ ATENDIMENTO VIP ══════════════ -->
+  <div class="vip-atendimento">
+    <div class="vip-title">
+      <span class="icon">⭐</span> Atendimento VIP para você!
+    </div>
+    <p>
+      Agora você pode acessar o link ao vivo e falar diretamente com um
+      atendente para receber orientação de forma rápida e personalizada.
+    </p>
+    <a class="vip-link" href="https://meet.google.com/cjw-awfk-pkk" target="_blank">
+      Acesse o Atendimento Online <span style="font-size:1.1em;">↗</span>
+    </a>
+    <div class="vip-horarios">
+      <strong>Horários de atendimento:</strong>
+      De segunda a sexta-feira<br/>
+      Das 8h às 12h<br/>
+      Das 13h às 17h<br/>
+      Das 18h às 22h
+    </div>
+    <p style="margin-top:16px; margin-bottom:0;">
+      Entre no link e tire suas dúvidas com a nossa equipe. Esperamos por você!
+    </p>
+  </div>
+
+  <div style="max-width:860px; margin:0 auto 0; padding:0 16px;">
+    <div style="border-top:4px solid var(--primary); padding-top:28px; text-align:center; margin-bottom:0;">
   </div>
 </div>
   
