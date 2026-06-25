@@ -1,19 +1,23 @@
-name: Apply mobile touch improvements
+name: Mobile touch improvements
 
 on:
   push:
     paths:
-      - .github/mobile-touch-improvements.trigger
-  workflow_dispatch:
+      - '.github/mobile-touch-improvements.trigger'
+      - '.github/workflows/apply-mobile-touch-improvements.yml'
 
 permissions:
-  contents: write  
+  contents: write
 
 jobs:
   patch-index:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
       - name: Improve mobile buttons and layout
         run: |
           python - <<'PY'
@@ -135,6 +139,8 @@ jobs:
     }
 
 '''
+              if marker not in html:
+                  raise SystemExit('Responsive marker not found')
               html = html.replace(marker, css + marker, 1)
 
           old_mobile = '''    @media (max-width: 600px) {
@@ -179,10 +185,11 @@ jobs:
 
           path.write_text(html, encoding='utf-8')
           PY
+
       - name: Commit changes
         run: |
-          git config user.name "Codex"
-          git config user.email "codex@openai.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
           if git diff --cached --quiet; then
             echo "No index.html changes to commit."
